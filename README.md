@@ -2,28 +2,6 @@
 
 A full-stack web application that uses AI (Claude by Anthropic) to analyze password strength in real time, backed by Flask, MongoDB, and a sleek brutalist-neon frontend.
 
----
-
-## 📁 Project Structure
-
-```
-password-checker/
-├── frontend/
-│   ├── index.html          # Main UI
-│   ├── style.css           # Brutalist-neon theme
-│   └── app.js              # Frontend logic + API calls
-│
-├── backend/
-│   ├── app.py              # Flask API server
-│   ├── setup_db.py         # MongoDB index/seed script
-│   ├── requirements.txt    # Python dependencies
-│   ├── .env.example        # Environment variables template
-│   └── Dockerfile          # Backend container
-│
-├── docker-compose.yml      # Full-stack orchestration
-├── nginx.conf              # Reverse proxy config
-└── README.md
-```
 
 ---
 
