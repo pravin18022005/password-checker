@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CipherGuard — AI Password Strength Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="grid-bg"></div>
+
+  <header>
+    <div class="logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">CipherGuard</span>
+    </div>
+    <div class="header-tag">AI-Powered · v2.0</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-label">Neural Security Analysis</div>
+      <h1>How strong is<br/><span class="accent">your password?</span></h1>
+      <p class="hero-sub">Real-time AI analysis powered by pattern recognition, entropy scoring, and breach detection.</p>
+    </section>
+
+    <div class="checker-card">
+      <div class="input-group">
+        <label for="password">Enter Password</label>
+        <div class="input-wrapper">
+          <input type="password" id="password" placeholder="Type your password..." autocomplete="off" spellcheck="false"/>
+          <button class="toggle-btn" id="toggleBtn" onclick="toggleVisibility()">
+            <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+        <div class="strength-bar-track">
+          <div class="strength-bar" id="strengthBar"></div>
+        </div>
+      </div>
+
+      <div class="score-display" id="scoreDisplay">
+        <div class="score-circle" id="scoreCircle">
+          <svg viewBox="0 0 120 120">
+            <circle class="track" cx="60" cy="60" r="50"/>
+            <circle class="fill" id="scoreArc" cx="60" cy="60" r="50"/>
+          </svg>
+          <div class="score-number" id="scoreNumber">—</div>
+        </div>
+        <div class="score-meta">
+          <div class="strength-label" id="strengthLabel">Awaiting Input</div>
+          <div class="score-sub" id="scoreSub">Enter a password to begin analysis</div>
+          <div class="crack-time" id="crackTime"></div>
+        </div>
+      </div>
+
+      <div class="metrics-grid" id="metricsGrid">
+        <div class="metric" id="m-length">
+          <div class="metric-icon">⊞</div>
+          <div class="metric-label">Length</div>
+          <div class="metric-value" id="mv-length">—</div>
+        </div>
+        <div class="metric" id="m-entropy">
+          <div class="metric-icon">∿</div>
+          <div class="metric-label">Entropy</div>
+          <div class="metric-value" id="mv-entropy">—</div>
+        </div>
+        <div class="metric" id="m-upper">
+          <div class="metric-icon">A</div>
+          <div class="metric-label">Uppercase</div>
+          <div class="metric-value" id="mv-upper">—</div>
+        </div>
+        <div class="metric" id="m-lower">
+          <div class="metric-icon">a</div>
+          <div class="metric-label">Lowercase</div>
+          <div class="metric-value" id="mv-lower">—</div>
+        </div>
+        <div class="metric" id="m-numbers">
+          <div class="metric-icon">#</div>
+          <div class="metric-label">Numbers</div>
+          <div class="metric-value" id="mv-numbers">—</div>
+        </div>
+        <div class="metric" id="m-symbols">
+          <div class="metric-icon">@</div>
+          <div class="metric-label">Symbols</div>
+          <div class="metric-value" id="mv-symbols">—</div>
+        </div>
+      </div>
+
+      <div class="ai-section" id="aiSection">
+        <div class="ai-header">
+          <span class="ai-badge">⬡ AI Analysis</span>
+          <div class="ai-loader" id="aiLoader"></div>
+        </div>
+        <div class="ai-response" id="aiResponse">
+          <em>AI feedback will appear here after analysis...</em>
+        </div>
+      </div>
+
+      <div class="suggestions-section" id="suggestionsSection">
+        <div class="suggestions-title">Improvement Checklist</div>
+        <ul class="suggestions-list" id="suggestionsList"></ul>
+      </div>
+
+      <button class="analyze-btn" id="analyzeBtn" onclick="analyzePassword()">
+        <span class="btn-text">Analyze Password</span>
+        <span class="btn-arrow">→</span>
+      </button>
+
+      <div class="history-section">
+        <div class="history-title">Recent Analyses
+          <button onclick="clearHistory()" class="clear-btn">Clear</button>
+        </div>
+        <div class="history-list" id="historyList">
+          <div class="empty-history">No analyses yet</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>CipherGuard does not store your passwords. All analysis is performed locally + via secure API.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
